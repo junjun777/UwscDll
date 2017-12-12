@@ -1,0 +1,8 @@
+﻿OPTION EXPLICIT
+
+TEXTBLOCK _script
+Add-Type -Path CSharpWrapper.dll;
+(New-Object CSharpWrapper.CSharpWrapper).JoinString('abc', '123');
+ENDTEXTBLOCK
+
+MSGBOX(POWERSHELL(_script))

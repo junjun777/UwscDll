@@ -1,0 +1,18 @@
+// 残念ながら、これは上手く言ってない
+OPTION EXPLICIT
+
+DEF_DLL JoinString(string, string, var string, int):int:CSharpWrapperIF
+
+dim s1="abc", s2="123", n1 = LENGTH(s1), n2 = LENGTH(s2), n = 0
+n = JoinString(s1, s2, NULL, 0)
+dim s = FORMAT(CHR(0), n)
+n = JoinString(s1, s2, s, n)
+IFB n = n1 + n2 + 1 THEN
+	IFB s = s1 + s2 THEN
+		MSGBOX("Test OK!")
+	ELSE
+		MSGBOX("結果エラー " + s)
+	ENDIF
+ELSE
+	MSGBOX("戻り値エラー " + n)
+ENDIF
